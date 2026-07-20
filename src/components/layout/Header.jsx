@@ -8,18 +8,7 @@ import logo from '../../assets/medias/logo.png'
 const NAV_ITEMS = [
   { label: "Home", href: "/", active: true },
   { label: "About Us", href: "/about-us" },
-  {
-    label: "Products",
-    href: "#",
-    dropdown: [
-      { label: "Product One", href: "#" },
-      { label: "Product Two", href: "#" },
-      { label: "Product Three", href: "#" },
-    ],
-  },
-  { label: "Industries", href: "#" },
-  { label: "Quality", href: "#" },
-  { label: "Sustainability", href: "#" },
+  { label: "Products", href: "/products" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
@@ -32,7 +21,7 @@ export default function Header() {
     <header className="w-full border-b border-gray-100 bg-white shadow-sm relative z-50">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
         {/* Logo */}
-        <a href="#" className="flex shrink-0 items-center">
+        <a href="/" className="flex shrink-0 items-center">
           <img src={logo} alt="pratap-group-logo" width="100px" />
         </a>
 

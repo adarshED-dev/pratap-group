@@ -5,9 +5,6 @@ import {
   Mail,
   Clock,
   Share2,
-  Facebook,
-  Linkedin,
-  Youtube,
   ArrowRight,
   Navigation,
 } from "lucide-react";
@@ -39,9 +36,9 @@ const INFO_CARDS = [
     icon: Share2,
     title: "Follow Us",
     socials: [
-      { icon: Facebook, href: "#", label: "Facebook" },
-      { icon: Linkedin, href: "#", label: "LinkedIn" },
-      { icon: Youtube, href: "#", label: "YouTube" },
+      { icon: "", href: "#", label: "Facebook" },
+      { icon: "", href: "#", label: "LinkedIn" },
+      { icon: "", href: "#", label: "YouTube" },
     ],
   },
 ];
@@ -129,7 +126,7 @@ export default function ContactForm() {
                   </a>
                 )}
 
-                {card.socials && (
+                {/* {card.socials && (
                   <div className="mt-2.5 flex items-center gap-2">
                     {card.socials.map((social, i) => {
                       const SocialIcon = social.icon;
@@ -145,7 +142,7 @@ export default function ContactForm() {
                       );
                     })}
                   </div>
-                )}
+                )} */}
               </div>
             );
           })}

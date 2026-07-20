@@ -3,10 +3,8 @@ import { CheckCircle2, ArrowRight } from "lucide-react";
 
 import mainImage from '../../assets/medias/main.png'
 import topImage from '../../assets/medias/top.png'
-import bottomleftImage from '../../assets/medias/bottomleft.png'
-import bottomrightImage from '../../assets/medias/bottomright.png'
-bottomright
-
+import bottomleftImage from '../../assets/medias/main.png'
+import bottomrightImage from '../../assets/medias/main.png'
 
 // Static data — edit here
 const SECTION = {
@@ -27,9 +25,9 @@ const SECTION = {
 // Replace with your actual facility image paths
 const IMAGES = {
   main: mainImage,
-  topRight: "/facility/production-line-aisle.jpg",
-  bottomRight1: "/facility/rolls-closeup-1.jpg",
-  bottomRight2: "/facility/rolls-closeup-2.jpg",
+  topRight: topImage,
+  bottomRight1: bottomleftImage,
+  bottomRight2: bottomrightImage,
 };
 
 export default function ProductionFacility() {
