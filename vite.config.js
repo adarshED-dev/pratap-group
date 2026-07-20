@@ -6,9 +6,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(),tailwindcss()],
   server: {
-    allowedHosts: [''],
+    allowedHosts: ['https://pratap-group-preview.onrender.com/'],
   },
   preview: {
-    allowedHosts: [''],
+    allowedHosts: ['https://pratap-group-preview.onrender.com/'],
   },
 })
