@@ -12,8 +12,8 @@ function About() {
     <main id="main-layout--about">
         <Header />
         <Hero />
-        <AboutHistory />
         <MissionVision />
+        <AboutHistory />
         <GroupCompanies />
         <ProductionFacility />
         <Footer />

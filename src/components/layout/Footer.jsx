@@ -25,22 +25,22 @@ const COMPANY = {
 const QUICK_LINKS = {
   title: "Quick Links",
   links: [
-    { label: "Home", href: "#" },
-    { label: "About Us", href: "#" },
-    { label: "Products", href: "#" },
-    { label: "Contact Us", href: "#" },
-    { label: "Our Infrastructure", href: "#" }
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about-us" },
+    { label: "Products", href: "/products" },
+    { label: "Contact Us", href: "/contact-us" },
+    { label: "Our Infrastructure", href: "/our-infrastructure" }
   ],
 };
 
 const PRODUCTS = {
   title: "Our Products",
   links: [
-    { label: "HDPE / PP Woven Fabric & Sacks", href: "#" },
-    { label: "Non-woven Fabrics", href: "#" },
-    { label: "PE Liner Bags", href: "#" },
-    { label: "Aluminium Composite Panels (ACP)", href: "#" },
-    { label: "Custom Solutions", href: "#" },
+    { label: "HDPE / PP Woven Fabric & Sacks", href: "/products?hdpe-pp-woven-fabric-&-sacks" },
+    { label: "Non-woven Fabrics", href: "/products?non-woven-fabrics" },
+    { label: "PE Liner Bags", href: "/products?pe-liner-bags" },
+    { label: "Aluminium Composite Panels (ACP)", href: "/products?aluminium-composite-panels" },
+    { label: "Custom Solutions", href: "/products?custom-solutions" },
   ],
 };
 
@@ -81,29 +81,6 @@ export default function Footer() {
       {/* Decorative background accents */}
       <div className="pointer-events-none absolute -left-24 -top-24 -z-0 h-72 w-72 rounded-full bg-blue-700/20 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 top-10 -z-0 h-72 w-72 rounded-full bg-blue-600/10 blur-3xl" />
-
-      {/* CTA bar */}
-      {/* <div className="relative border-b border-white/10 bg-[#223d8e] py-6 sm:py-7">
-        <div className="page-width flex flex-col items-center gap-4 text-center lg:flex-row lg:justify-between lg:gap-6 lg:text-left">
-          <div>
-            <p className="text-xs text-blue-100 sm:text-sm">{CTA.line1}</p>
-            <p className="mt-1 text-base font-bold text-white sm:text-lg md:text-xl">
-              {CTA.line2}
-            </p>
-          </div>
-
-          <a
-            href={CTA.button.href}
-            className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-blue-900 transition-colors hover:bg-blue-100 sm:text-sm"
-          >
-            {CTA.button.label}
-            <ArrowRight
-              size={16}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </a>
-        </div>
-      </div> */}
 
       {/* Main footer content */}
       <div className="relative page-width py-10 sm:py-12">

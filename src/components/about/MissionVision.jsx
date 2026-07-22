@@ -68,7 +68,7 @@ export default function MissionVision() {
                         {item.title}
                       </h3>
                     </div>
-                    <p className="mt-2.5 max-w-xs text-[11px] leading-relaxed text-blue-100/75 sm:mt-3 sm:text-xs">
+                    <p className="mt-2.5 max-w-xs text-md leading-relaxed text-blue-100/75 sm:mt-3 sm:text-sm">
                       {item.description}
                     </p>
                   </div>

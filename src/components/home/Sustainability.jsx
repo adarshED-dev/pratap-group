@@ -53,7 +53,7 @@ export default function Sustainability() {
                 {SUSTAINABILITY.description}
               </p>
 
-              <a
+              {/* <a
                 href={SUSTAINABILITY.cta.href}
                 className="group mt-4 inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-4 py-2 text-[11px] font-semibold text-white backdrop-blur transition-colors hover:bg-white hover:text-slate-900 sm:mt-6 sm:px-5 sm:py-2.5 sm:text-xs md:text-sm"
               >
@@ -62,7 +62,7 @@ export default function Sustainability() {
                   size={15}
                   className="transition-transform duration-300 group-hover:translate-x-1"
                 />
-              </a>
+              </a> */}
             </div>
 
             {/* Points */}

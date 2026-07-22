@@ -1,83 +1,92 @@
-import React from "react";
-import { ArrowRight, MapPin } from "lucide-react";
-import heroBanner from '../../assets/medias/heroBanner1.png'
+import { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
 
-// Static content — edit here
-const HERO = {
-  eyebrow: "Manufacturing Excellence Since Day One",
-  headingLine1: "Stronger Materials.",
-  headingLine2: "Better Solutions.",
-  description:
-    "Pratap is a leading manufacturer of HDPE / PP Woven Fabric and Sacks, Non-woven Fabrics, PE Liner Bags and Aluminium Composite Panels (ACP) in West Bengal.",
-  descriptionHighlight: "West Bengal.",
-  primaryCta: { label: "Explore Our Products", href: "#" },
-  secondaryCta: { label: "About Pratap", href: "#" },
-  location: "Proudly Manufacturing in West Bengal, India",
-  // Replace with your actual banner image path
-  image: heroBanner,
-  imageAlt: "Pratap woven sacks, liner bags and aluminium composite panels",
-};
 
-export default function Hero() {
+function HeroBanner({ overlayData = {}, imageSrc, imageSrcMobile }) {
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowContent(true), 200);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="relative w-full">
-      {/* Image sets the container's natural height — no fixed-height wrapper */}
-      <img
-        src={HERO.image}
-        alt={HERO.imageAlt}
-        className="block h-auto w-full object-cover"
-      />
+    <section className="relative w-full h-screen overflow-hidden bg-[#081B33]">
+      {/* Background image — swaps to a mobile-cropped image if provided,
+          with a slow Ken Burns zoom for a premium feel */}
+      <picture>
+        {imageSrcMobile && <source srcSet={imageSrcMobile} media="(max-width: 767px)" />}
+        <img
+          src={imageSrc}
+          alt=""
+          aria-hidden="true"
+          className={`absolute inset-0 h-full w-full object-cover transition-transform duration-[6000ms] ease-out ${
+            showContent ? "scale-110" : "scale-100"
+          }`}
+        />
+      </picture>
 
-      {/* Readability gradient over the image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent sm:from-white sm:via-white/70 sm:to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-transparent sm:hidden" />
+      {/* Dark tint for text contrast */}
+      <div className="absolute inset-0 bg-black/45" />
 
       {/* Overlay content */}
-      <div className="absolute inset-0 flex items-center">
-        <div className="page-width mx-auto w-full max-w-7xl">
-          <div className="max-w-xl">
-            <p className="text-xs font-bold tracking-wider text-blue-700 sm:text-sm">
-              {HERO.eyebrow}
-            </p>
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-end px-6 py-16 text-center text-white">
+        {overlayData.subheading && (
+          <p
+            className={`mb-3 text-xs sm:text-sm uppercase tracking-[3px] text-white/80 transition-all duration-700 ${
+              showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            {overlayData.subheading}
+          </p>
+        )}
 
-            <h1 className="mt-2 text-2xl font-extrabold leading-tight text-gray-900 xs:text-3xl sm:mt-3 sm:text-4xl md:text-5xl">
-              {HERO.headingLine1}
-              <br />
-              <span className="text-blue-600">{HERO.headingLine2}</span>
-            </h1>
+        <h1
+          className={`uppercase font-serif text-3xl sm:text-5xl md:text-6xl leading-tight max-w-3xl transition-all duration-700 delay-150 ${
+            showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          {overlayData.heading}
+        </h1>
 
-            <p className="mt-3 max-w-md text-xs text-gray-600 sm:mt-4 sm:text-sm md:text-base">
-              {HERO.description.replace(HERO.descriptionHighlight, "")}
-              <span className="font-semibold text-gray-900">
-                {HERO.descriptionHighlight}
+        {overlayData.description && (
+          <p
+            className={`mt-6 max-w-xl text-sm sm:text-base text-white/85 transition-all duration-700 delay-300 ${
+              showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            {overlayData.description}
+          </p>
+        )}
+
+        {overlayData.buttonAvailability && (
+          <div
+            className={`mt-8 flex flex-col sm:flex-row justify-center gap-4 transition-all duration-700 delay-500 ${
+              showContent ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+            }`}
+          >
+            <a
+              to={overlayData.primaryLink || "/brands"}
+              className="group relative overflow-hidden uppercase text-sm sm:text-base font-medium px-6 py-3 bg-white text-black transition-colors duration-300"
+            >
+              <span className="relative z-10 transition-colors duration-300 group-hover:text-white">
+                {overlayData.primaryLabel || "Explore Brands"}
               </span>
-            </p>
-
-            <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-6 sm:gap-4">
+              <span className="absolute inset-0 -translate-x-full bg-[#081B33] transition-transform duration-300 ease-out group-hover:translate-x-0" />
+            </a>
+            {overlayData.secondaryLink && (
               <a
-                href={HERO.primaryCta.href}
-                className="inline-flex items-center gap-2 rounded-full bg-blue-800 px-4 py-2 text-xs font-semibold text-white transition-colors hover:bg-blue-900 sm:px-6 sm:py-3 sm:text-sm"
+                to={overlayData.secondaryLink}
+                className="uppercase text-sm sm:text-base font-medium px-6 py-3 border border-white text-white transition-all duration-300 hover:bg-white hover:text-[#081B33]"
               >
-                {HERO.primaryCta.label}
-                <ArrowRight size={16} />
+                {overlayData.secondaryLabel || "Learn More"}
               </a>
-
-              <a
-                href={HERO.secondaryCta.href}
-                className="inline-flex items-center gap-2 rounded-full border border-blue-800 bg-white/70 px-4 py-2 text-xs font-semibold text-blue-900 backdrop-blur transition-colors hover:bg-white sm:px-6 sm:py-3 sm:text-sm"
-              >
-                {HERO.secondaryCta.label}
-                <ArrowRight size={16} />
-              </a>
-            </div>
-
-            <div className="mt-4 flex items-center gap-1.5 text-xs text-gray-600 sm:mt-6 sm:text-sm">
-              <MapPin size={14} className="shrink-0 text-blue-700" />
-              <span>{HERO.location}</span>
-            </div>
+            )}
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
 }
+
+export default HeroBanner;

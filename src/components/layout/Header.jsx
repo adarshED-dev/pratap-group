@@ -28,7 +28,7 @@ export default function Header() {
   return (
 
     <header className="w-full bg-white">
-      <nav className="mx-auto flex page-width items-center justify-between py-4">
+      <nav className="mx-auto flex page-width items-center justify-between py-4 px-5">
         {/* Left links */}
         <div className="flex items-center gap-8">
           {leftLinks.map((link, i) =>

@@ -33,9 +33,9 @@ export default function ProductionFacility() {
   return (
     <section className="w-full bg-blue-50/40 py-12 sm:py-16">
       <div className="mx-auto page-width">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-8 xl:gap-12">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr] lg:gap-8 xl:gap-12">
           {/* Left: text */}
-          <div>
+          {/* <div>
             <p className="text-xs font-bold tracking-wider text-blue-700 sm:text-sm">
               {SECTION.eyebrow}
             </p>
@@ -71,7 +71,7 @@ export default function ProductionFacility() {
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
             </a>
-          </div>
+          </div> */}
 
           {/* Right: image gallery */}
           <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-[1.6fr_1fr]">

@@ -133,7 +133,7 @@ export default function ProductRange() {
         </div>
 
         {/* View all button */}
-        <div className="mt-10 flex justify-center sm:mt-12">
+        {/* <div className="mt-10 flex justify-center sm:mt-12">
           <a
             href="#"
             className="group inline-flex items-center gap-2 rounded-full border border-blue-700 px-6 py-3 text-xs font-semibold text-blue-800 transition-colors hover:bg-blue-800 hover:text-white sm:text-sm"
@@ -144,7 +144,7 @@ export default function ProductRange() {
               className="transition-transform duration-300 group-hover:translate-x-1"
             />
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

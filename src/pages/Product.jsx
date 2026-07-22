@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import ManufacturerDetails from "../components/product/ManufacturerDetails";
 
 /* ------------------------------------------------------------------ */
 /*  STATIC DATA                                                        */
@@ -497,7 +498,7 @@ export default function Product() {
         </div>
 
         {/* ---------------- APPLICATIONS ---------------- */}
-        <section className="mt-14">
+        {/* <section className="mt-14">
           <h2 className="text-lg font-bold text-slate-900">Applications</h2>
           <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-8">
             {product.applications.map((a, i) => {
@@ -512,7 +513,7 @@ export default function Product() {
               );
             })}
           </div>
-        </section>
+        </section> */}
 
         {/* ---------------- KEY SPECS + WHY CHOOSE US ---------------- */}
         <section className="mt-14 grid grid-cols-1 gap-6 lg:grid-cols-2">
@@ -547,81 +548,10 @@ export default function Product() {
           </div>
         </section>
 
-        {/* ---------------- INDUSTRIES WE SERVE ---------------- */}
         <section className="mt-14">
-          <h2 className="text-center text-lg font-bold text-slate-900">Industries We Serve</h2>
-          <div className="mt-6 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-8">
-            {INDUSTRIES.map((ind, i) => {
-              const Icon = ind.icon;
-              return (
-                <div key={i} className="flex flex-col items-center gap-2 text-center">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-50">
-                    <Icon className="h-5 w-5 text-blue-700" strokeWidth={1.5} />
-                  </span>
-                  <span className="text-xs font-medium text-slate-600">{ind.label}</span>
-                </div>
-              );
-            })}
-          </div>
+          <ManufacturerDetails />
         </section>
 
-        {/* ---------------- GALLERY + COMPARE ---------------- */}
-        <section className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* Gallery */}
-          <div>
-            <h2 className="text-lg font-bold text-slate-900">Product Gallery</h2>
-            <div className="mt-5 grid grid-cols-4 gap-3">
-              {Array.from({ length: 4 }).map((_, i) => (
-                <ProductVisual key={i} pattern={product.pattern} variant={i + 1} className="h-24 w-full rounded-lg sm:h-28" />
-              ))}
-            </div>
-            <button className={`mt-4 inline-flex items-center gap-1 text-sm font-semibold ${accent.text}`}>
-              View More <ChevronRight className="h-4 w-4" />
-            </button>
-          </div>
-
-          {/* Compare */}
-          <div>
-            <h2 className="text-lg font-bold text-slate-900">Compare At a Glance</h2>
-            <div className="mt-5 overflow-x-auto rounded-xl border border-slate-200">
-              <table className="w-full min-w-max border-collapse text-sm">
-                <thead>
-                  <tr className="bg-slate-50">
-                    <th className="whitespace-pre-line px-3 py-3 text-left text-xs font-semibold text-slate-500">
-                      Feature
-                    </th>
-                    {COMPARE_COLUMNS.map((c) => (
-                      <th
-                        key={c.id}
-                        className={`whitespace-pre-line px-2 py-3 text-center text-xs font-semibold ${
-                          c.id === product.id ? "text-blue-700" : "text-slate-500"
-                        }`}
-                      >
-                        {c.label}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {COMPARE_ROWS.map((row, ri) => (
-                    <tr key={ri} className={ri % 2 === 0 ? "bg-white" : "bg-slate-50/50"}>
-                      <td className="px-3 py-2.5 text-slate-600">{row.feature}</td>
-                      {row.values.map((v, ci) => (
-                        <td key={ci} className="px-2 py-2.5 text-center">
-                          {v ? (
-                            <Check className="mx-auto h-4 w-4 text-emerald-600" strokeWidth={2.5} />
-                          ) : (
-                            <Minus className="mx-auto h-4 w-4 text-slate-300" strokeWidth={2.5} />
-                          )}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
         </div>
         </div>
         <Footer />
