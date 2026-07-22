@@ -36,8 +36,8 @@ export default function Sustainability() {
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent sm:hidden" />
 
       {/* Overlay content */}
-      <div className="absolute inset-0 flex items-center">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10">
+      <div className="absolute inset-0 flex items-center page-width ">
+        <div className="w-full">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:gap-10 xl:gap-16">
             {/* Text block */}
             <div className="max-w-xs sm:max-w-sm">

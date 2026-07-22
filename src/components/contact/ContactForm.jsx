@@ -25,7 +25,7 @@ const INFO_CARDS = [
   {
     icon: Mail,
     title: "Email",
-    lines: ["info@protap.in", "sales@protap.in"],
+    lines: ["info@Pratap.in", "sales@Pratap.in"],
   },
   {
     icon: Clock,
@@ -52,7 +52,7 @@ const FORM_SECTION = {
 const MAP_SECTION = {
   title: "Find Us",
   card: {
-    name: "Protap Manufacturing Unit",
+    name: "Pratap Manufacturing Unit",
     address: "Vill. – Haripur, P.O. – Panchla, Howrah – 711322, West Bengal, India",
     cta: { label: "Get Directions", href: "#" },
   },
@@ -93,8 +93,8 @@ export default function ContactForm() {
   return (
     <section className="w-full bg-white">
       {/* Info cards */}
-      <div className="border-b border-gray-100 px-4 py-8 sm:px-6 lg:px-10">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-5">
+      <div className="border-b border-gray-100 py-8">
+        <div className="mx-auto page-width grid  grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-5">
           {INFO_CARDS.map((card, index) => {
             const Icon = card.icon;
             return (
@@ -150,8 +150,8 @@ export default function ContactForm() {
       </div>
 
       {/* Form + Map */}
-      <div className="px-4 py-10 sm:px-6 sm:py-12 lg:px-10">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+      <div className="w-full py-10 sm:py-12">
+        <div className="mx-auto  page-width grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
           {/* Send Us a Message */}
           <div>
             <h2 className="text-lg font-extrabold text-blue-950 sm:text-xl">
@@ -248,18 +248,19 @@ export default function ContactForm() {
 
             <div className="relative mt-5 overflow-hidden rounded-2xl border border-gray-100 sm:mt-6">
               {/* Stylized map placeholder — swap for a real embedded map (Google Maps / Mapbox) */}
-              <div className="relative aspect-[4/3] w-full bg-[repeating-linear-gradient(0deg,#e2e8f0_0px,#e2e8f0_1px,#eff2f6_1px,#eff2f6_40px),repeating-linear-gradient(90deg,#e2e8f0_0px,#e2e8f0_1px,#eff2f6_1px,#eff2f6_40px)] sm:aspect-[4/3] md:aspect-square lg:aspect-[4/3]">
-                <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-300/30 blur-xl" />
-                <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-[85%] flex-col items-center">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-800 shadow-lg">
-                    <MapPin size={18} className="text-white" />
-                  </div>
-                  <div className="mt-1 h-2 w-2 rotate-45 bg-blue-800" />
-                </div>
-              </div>
+               <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3556.660807499705!2d75.74329420000001!3d26.9459656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db323afe6437f%3A0x1bfb3495b0ff633b!2sPratap%20Group%20Of%20Companies!5e0!3m2!1sen!2sin!4v1784615410288!5m2!1sen!2sin"
+      width="100%"
+      height="450"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="strict-origin-when-cross-origin"
+      title="Pratap Group Of Companies Location"
+    />
 
               {/* Location info card */}
-              <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-white/95 px-4 py-3 shadow-md backdrop-blur sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-xs">
+              {/* <div className="absolute bottom-3 left-3 right-3 rounded-xl bg-white/95 px-4 py-3 shadow-md backdrop-blur sm:bottom-4 sm:left-4 sm:right-auto sm:max-w-xs">
                 <div className="flex items-start gap-2.5">
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-800">
                     <MapPin size={14} className="text-white" />
@@ -280,7 +281,7 @@ export default function ContactForm() {
                     </a>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

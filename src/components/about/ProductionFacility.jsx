@@ -5,7 +5,6 @@ import mainImage from '../../assets/medias/main.png'
 import topImage from '../../assets/medias/top.png'
 import bottomleftImage from '../../assets/medias/main.png'
 import bottomrightImage from '../../assets/medias/main.png'
-
 // Static data — edit here
 const SECTION = {
   eyebrow: "Our Infrastructure",
@@ -32,8 +31,8 @@ const IMAGES = {
 
 export default function ProductionFacility() {
   return (
-    <section className="w-full bg-blue-50/40 px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
-      <div className="mx-auto max-w-7xl">
+    <section className="w-full bg-blue-50/40 py-12 sm:py-16">
+      <div className="mx-auto page-width">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-8 xl:gap-12">
           {/* Left: text */}
           <div>
@@ -80,7 +79,7 @@ export default function ProductionFacility() {
             <div className="overflow-hidden rounded-2xl">
               <img
                 src={IMAGES.main}
-                alt="Protap production facility floor"
+                alt="Pratap production facility floor"
                 className="h-full max-h-[520px] w-full object-cover md:max-h-none"
               />
             </div>
@@ -90,7 +89,7 @@ export default function ProductionFacility() {
               <div className="overflow-hidden rounded-2xl">
                 <img
                   src={IMAGES.topRight}
-                  alt="Protap production line aisle"
+                  alt="Pratap production line aisle"
                   className="aspect-[16/10] w-full object-cover"
                 />
               </div>
@@ -99,14 +98,14 @@ export default function ProductionFacility() {
                 <div className="overflow-hidden rounded-2xl">
                   <img
                     src={IMAGES.bottomRight1}
-                    alt="Protap fabric rolls close-up"
+                    alt="Pratap fabric rolls close-up"
                     className="aspect-square w-full object-cover"
                   />
                 </div>
                 <div className="overflow-hidden rounded-2xl">
                   <img
                     src={IMAGES.bottomRight2}
-                    alt="Protap woven fabric roll close-up"
+                    alt="Pratap woven fabric roll close-up"
                     className="aspect-square w-full object-cover"
                   />
                 </div>

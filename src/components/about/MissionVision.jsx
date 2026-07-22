@@ -8,7 +8,7 @@ const SECTION = {
   heading: "Mission & Vision",
   // Replace with your actual product banner image path
   image: missionvisionImage,
-  imageAlt: "Protap woven sacks, liner bags and aluminium composite panels",
+  imageAlt: "Pratap woven sacks, liner bags and aluminium composite panels",
 };
 
 const ITEMS = [
@@ -42,7 +42,7 @@ export default function MissionVision() {
 
       {/* Overlay content */}
       <div className="absolute inset-0 flex items-center">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10">
+        <div className="mx-auto w-full page-width">
           <div className="max-w-2xl">
             <p className="text-[10px] font-bold tracking-wider text-blue-300 sm:text-xs">
               {SECTION.eyebrow}

@@ -399,8 +399,8 @@ export default function Product() {
   return (
     <main id="main-layout--product">
         <Header />
-        <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-slate-50 font-sans text-slate-800 w-full">
+      <div className="page-width py-8">
 
         {/* ---------------- TABS ---------------- */}
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">

@@ -9,23 +9,23 @@ const SECTION = {
 
 const COMPANIES = [
   {
-    name: "Protap Polyfab Pvt. Ltd.",
+    name: "Pratap Polyfab Pvt. Ltd.",
     description: "Manufacturer of HDPE / PP Woven Fabric and Sacks.",
   },
   {
-    name: "Protap Nonwovens Pvt. Ltd.",
+    name: "Pratap Nonwovens Pvt. Ltd.",
     description: "Manufacturer of Non-woven Fabrics for diverse applications.",
   },
   {
-    name: "Protap Packaging Pvt. Ltd.",
+    name: "Pratap Packaging Pvt. Ltd.",
     description: "Manufacturer of PE Liner Bags and Packaging Solutions.",
   },
   {
-    name: "Protap Panels Pvt. Ltd.",
+    name: "Pratap Panels Pvt. Ltd.",
     description: "Manufacturer of Aluminium Composite Panels (ACP).",
   },
   {
-    name: "Protap Global Solutions",
+    name: "Pratap Global Solutions",
     description: "Export and Global Supply Chain Solutions.",
   },
 ];
@@ -34,8 +34,8 @@ const CTA = { label: "Explore Our Products", href: "#" };
 
 export default function GroupCompanies() {
   return (
-    <section className="w-full bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
-      <div className="mx-auto max-w-7xl">
+    <section className="w-full bg-white py-12 sm:py-16">
+      <div className="mx-auto page-width">
         {/* Heading */}
         <div>
           <p className="text-xs font-bold tracking-wider text-blue-700 sm:text-sm">
@@ -54,11 +54,11 @@ export default function GroupCompanies() {
               key={index}
               className="group flex flex-col items-center rounded-xl border border-gray-100 bg-white px-5 py-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:px-6"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 transition-colors duration-300 group-hover:bg-blue-100">
+              <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-blue-100 bg-black-50 transition-colors duration-300 group-hover:bg-blue-100">
                 <Building2 className="h-6 w-6 text-blue-700" strokeWidth={1.5} />
               </div>
 
-              <h3 className="mt-4 text-sm font-bold text-blue-700 sm:text-[15px]">
+              <h3 className="mt-4 text-sm font-bold text-[#2a3d6d] sm:text-[15px]">
                 {company.name}
               </h3>
               <p className="mt-2 text-xs leading-relaxed text-gray-500 sm:text-[13px]">

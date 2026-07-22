@@ -1,7 +1,25 @@
 @import "tailwindcss";
 
+@font-face{
+    src: url("/src/assets/fonts/helvetica.ttf");
+    font-family: helvetica;
+    font-display: swap;
+}
+
+:root{
+    --helvetica-font: helvetica;
+    --dark-blue: #2a3d6d;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: var(--helvetica-font);
+}
+
+
 .page-width{
     max-width: 100%;
     width: 90%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }

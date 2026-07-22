@@ -1,6 +1,12 @@
 import React from "react";
 import { ArrowRight, LayoutGrid } from "lucide-react";
 
+import wovenSackImage from '../../assets/medias/woven-sack.png'
+import nonWovenImage from '../../assets/medias/non-woven-fabric.png'
+import preLinerImage from '../../assets/medias/pe-liner-bag.png'
+import acpImage from '../../assets/medias/acp.png'
+
+
 // Static data — edit here
 const SECTION = {
   eyebrow: "Our Product Range",
@@ -9,7 +15,7 @@ const SECTION = {
 
 const PRODUCTS = [
   {
-    image: "/products/hdpe-woven-sacks.jpg",
+    image: wovenSackImage,
     title: "HDPE / PP Woven\nFabric & Sacks",
     description:
       "Durable, reliable and high-performance woven solutions for diverse industrial applications.",
@@ -17,7 +23,7 @@ const PRODUCTS = [
     href: "#",
   },
   {
-    image: "/products/non-woven-fabrics.jpg",
+    image: nonWovenImage,
     title: "Non-woven\nFabrics",
     description:
       "Versatile and sustainable fabrics for multiple applications.",
@@ -25,14 +31,14 @@ const PRODUCTS = [
     href: "#",
   },
   {
-    image: "/products/pe-liner-bags.jpg",
+    image: preLinerImage,
     title: "PE Liner Bags",
     description: "Leak-proof protection for safe and secure packaging.",
     cta: "View Products",
     href: "#",
   },
   {
-    image: "/products/aluminium-composite-panels.jpg",
+    image: acpImage,
     title: "Aluminium Composite\nPanels (ACP)",
     description:
       "Strong, lightweight and modern panels for architectural excellence.",
@@ -50,8 +56,8 @@ const CUSTOM_CARD = {
 
 export default function ProductRange() {
   return (
-    <section className="w-full bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
-      <div className="mx-auto max-w-7xl">
+    <section className="w-full bg-white py-12 sm:py-16">
+      <div className="page-width mx-auto max-w-7xl">
         {/* Heading */}
         <div className="text-center">
           <p className="text-xs font-bold tracking-wider text-blue-700 sm:text-sm">
@@ -100,21 +106,21 @@ export default function ProductRange() {
           ))}
 
           {/* Custom Solutions dark card */}
-          <div className="group flex flex-col justify-between rounded-xl bg-gradient-to-br from-blue-900 to-blue-950 px-5 py-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:col-span-2 sm:px-6 sm:py-7 lg:col-span-1">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/25 bg-white/5">
-              <LayoutGrid className="h-5 w-5 text-white" strokeWidth={1.75} />
+          <div className="group flex flex-col justify-between rounded-xl bg-gradient-to-r from-slate-50 to-sky-50 px-5 py-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:col-span-2 sm:px-6 sm:py-7 lg:col-span-1">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-black/25 bg-black/5">
+              <LayoutGrid className="h-5 w-5 text-black" strokeWidth={1.75} />
             </div>
 
             <div className="mt-6">
-              <h3 className="text-base font-bold text-white sm:text-lg">
+              <h3 className="text-base font-bold text-black sm:text-lg">
                 {CUSTOM_CARD.title}
               </h3>
-              <p className="mt-2 text-xs leading-relaxed text-blue-200/80 sm:text-[13px]">
+              <p className="mt-2 text-xs leading-relaxed text-black sm:text-[13px]">
                 {CUSTOM_CARD.description}
               </p>
               <a
                 href={CUSTOM_CARD.href}
-                className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-white transition-colors hover:text-blue-200 sm:text-sm"
+                className="mt-4 inline-flex items-center gap-1.5 text-xs font-semibold text-blank transition-colors hover:text-blue-200 sm:text-sm"
               >
                 {CUSTOM_CARD.cta}
                 <ArrowRight

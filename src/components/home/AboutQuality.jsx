@@ -16,14 +16,14 @@ import aboutFactoryImage from '../../assets/medias/bg-tint.png'
 
 // Static data — edit here
 const ABOUT = {
-  eyebrow: "About Protap",
+  eyebrow: "About Pratap",
   headingLine1: "Built on trust.",
   headingLine2: "Driven by quality.",
   description:
-    "With over a decade of expertise, Protap has become a trusted name in manufacturing high-quality industrial products. Our focus on innovation, advanced technology and customer satisfaction drives everything we do.",
+    "With over a decade of expertise, Pratap has become a trusted name in manufacturing high-quality industrial products. Our focus on innovation, advanced technology and customer satisfaction drives everything we do.",
   // Replace with your actual facility image path
   image: aboutFactoryImage,
-  imageAlt: "Protap manufacturing facility",
+  imageAlt: "Pratap manufacturing facility",
   features: [
     {
       icon: Factory,
@@ -45,7 +45,7 @@ const ABOUT = {
 };
 
 const WHY_CHOOSE = {
-  eyebrow: "Why Choose Protap?",
+  eyebrow: "Why Choose Pratap?",
   headingLine1: "Quality is not just our promise,",
   headingLine2: "it's our process.",
   items: [
@@ -86,7 +86,7 @@ export default function AboutQuality() {
   return (
     <section className="w-full">
       <div className="w-full grid grid-cols-1 lg:grid-cols-2">
-        {/* Left: About Protap */}
+        {/* Left: About Pratap */}
         <div className="relative isolate overflow-hidden px-4 py-12 sm:px-8 sm:py-16 lg:px-10">
           <img
             src={ABOUT.image}
@@ -95,19 +95,19 @@ export default function AboutQuality() {
           />
           <div className="absolute inset-0 -z-10 bg-blue-950/85" />
 
-          <p className="text-[11px] font-bold tracking-wider text-blue-200 sm:text-xs">
+          <p className="text-[11px] font-bold tracking-wider text-blue-200 sm:text-xs page-width pl-[2%]">
             {ABOUT.eyebrow}
           </p>
-          <h2 className="mt-2 text-xl font-extrabold leading-snug text-white sm:text-2xl md:text-3xl">
+          <h2 className="mt-2 text-xl font-extrabold leading-snug text-white sm:text-2xl md:text-3xl page-width pl-[2%]">
             {ABOUT.headingLine1}
             <br />
             {ABOUT.headingLine2}
           </h2>
-          <p className="mt-4 max-w-md text-xs leading-relaxed text-blue-100/80 sm:text-sm">
+          <p className="mt-4 max-w-md text-xs leading-relaxed text-blue-100/80 sm:text-sm page-width pl-[2%]">
             {ABOUT.description}
           </p>
 
-          <div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5">
+          <div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5 page-width pl-[2%]">
             {ABOUT.features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -130,7 +130,7 @@ export default function AboutQuality() {
 
           <a
             href={ABOUT.cta.href}
-            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-blue-900 transition-colors hover:bg-blue-100 sm:mt-10 sm:text-sm"
+            className="group mt-8 ml-[7%] inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-xs font-semibold text-blue-900 transition-colors hover:bg-blue-100 sm:mt-10 sm:text-sm"
           >
             {ABOUT.cta.label}
             <ArrowRight
@@ -140,7 +140,7 @@ export default function AboutQuality() {
           </a>
         </div>
 
-        {/* Right: Why Choose Protap */}
+        {/* Right: Why Choose Pratap */}
         <div className="bg-white px-4 py-12 sm:px-8 sm:py-16 lg:px-10">
           <p className="text-[11px] font-bold tracking-wider text-blue-700 sm:text-xs">
             {WHY_CHOOSE.eyebrow}
@@ -160,10 +160,10 @@ export default function AboutQuality() {
                   key={index}
                   className="group rounded-xl border border-gray-100 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:p-5"
                 >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-blue-100 bg-blue-50 sm:h-10 sm:w-10">
-                    <Icon className="h-4 w-4 text-blue-700 sm:h-5 sm:w-5" strokeWidth={1.75} />
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-blue-100 bg-black-50 sm:h-10 sm:w-10">
+                    <Icon className="h-4 w-4 text-[#576cab] sm:h-5 sm:w-5" strokeWidth={1.75} />
                   </div>
-                  <h3 className="mt-3 text-xs font-bold text-blue-800 sm:text-sm">
+                  <h3 className="mt-3 text-xs font-bold text-[#2e3f6e] sm:text-sm">
                     {item.title}
                   </h3>
                   <p className="mt-1 text-[11px] leading-snug text-gray-500 sm:text-xs">

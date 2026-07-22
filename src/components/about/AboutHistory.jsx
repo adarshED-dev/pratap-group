@@ -1,188 +1,231 @@
-import React from "react";
+import { useEffect, useRef, useState } from "react";
 import {
-  PackageCheck,
-  Award,
-  Users,
-  Globe2,
-  ArrowRight,
-  Factory,
+  Building2,
+  FlaskConical,
+  Settings,
+  MapPin,
+  TrendingUp,
+  Rocket,
 } from "lucide-react";
 
-// Static data — edit here
-const ABOUT = {
-  eyebrow: "Who We Are",
-  headingLine1: "Building Stronger",
-  headingLine2: "Solutions Since Day One",
-  description:
-    "With a commitment to excellence and a customer-centric approach, Protap has grown into a trusted name in the manufacturing industry. Our state-of-the-art facilities, skilled workforce and advanced technology enable us to deliver superior quality products that cater to diverse industries across the globe.",
-  cta: { label: "Get to Know Us", href: "#" },
-};
-
-const STATS = [
-  { icon: PackageCheck, value: "15+", label: "Years of\nExperience" },
-  { icon: Award, value: "100+", label: "Products" },
-  { icon: Users, value: "500+", label: "Happy\nClients" },
-  { icon: Globe2, value: "Pan India", label: "Supply\nNetwork" },
-];
-
-const HISTORY = {
+// -----------------------------------------------------------------------
+// Static data
+// -----------------------------------------------------------------------
+const SECTION = {
   eyebrow: "Our History",
-  heading: "Our Journey of Growth",
+  headingPlain: "Our Journey of ",
+  headingHighlight: "Growth",
+  description:
+    "From a small beginning to an industry leader, our journey is built on vision, innovation and unwavering commitment to quality.",
 };
 
-const TIMELINE = [
+const MILESTONES = [
   {
-    year: "2008",
+    year: "1997",
     title: "The Beginning",
     description:
-      "Protap was established with a vision to deliver high-quality packaging and industrial materials.",
+      "Pratap Group of companies |  Pratap Group established in India with a focus on technical textile filter products.",
+    icon: Building2,
+    image:
+      "https://images.unsplash.com/photo-1565610222536-ef125c59da2e?w=700&h=450&fit=crop",
   },
   {
-    year: "2012",
+    year: "2003",
     title: "Expanding Horizons",
     description:
-      "Expanded product portfolio and enhanced production capacity to meet growing market demand.",
+      "Expanded product line with specialized chemical and pharmaceutical filter solutions — centrifuge filter bags, nutch filter bags and polypropylene filter fabrics.",
+    icon: FlaskConical,
+    image:
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&h=450&fit=crop",
   },
   {
-    year: "2016",
-    title: "Technological Advancement",
+    year: "2008",
+    title: "Innovation & Growth",
     description:
-      "Invested in advanced machinery and technology to ensure superior quality and efficiency.",
+      "Invested in advanced manufacturing technology and infrastructure to enhance product quality and production capacity.",
+    icon: Settings,
+    image:
+      "https://images.unsplash.com/photo-1581091870621-1f7f0aeae481?w=700&h=450&fit=crop",
+  },
+  {
+    year: "2015",
+    title: "Strengthening Presence",
+    description:
+      "Strengthened our presence across India by building a strong distribution network and serving diverse industries with reliability.",
+    icon: MapPin,
+    image:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&h=450&fit=crop",
   },
   {
     year: "2020",
-    title: "Pan India Presence",
+    title: "New Milestones",
     description:
-      "Strengthened our distribution network and became a trusted partner across India.",
+      "Introduced innovative products and sustainable solutions to meet evolving industry needs and global standards.",
+    icon: TrendingUp,
+    image:
+      "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=700&h=450&fit=crop",
   },
   {
     year: "Today & Beyond",
     title: "Innovating for the Future",
     description:
-      "Continuously innovating and expanding to create value and a sustainable impact for the future.",
+      "Continuously innovating and expanding to create value and a sustainable impact for generations to come.",
+    icon: Rocket,
+    image:
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=700&h=450&fit=crop",
   },
 ];
 
-export default function AboutHistory() {
+// -----------------------------------------------------------------------
+// Scroll-reveal hook — adds a "visible" flag once the element enters
+// the viewport, used to trigger the fade/slide-in animation classes.
+// -----------------------------------------------------------------------
+function useRevealOnScroll() {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(node);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return [ref, isVisible];
+}
+
+function MilestoneCard({ milestone, align }) {
+  const [ref, isVisible] = useRevealOnScroll();
+  const Icon = milestone.icon;
+
   return (
-    <section className="w-full bg-white px-4 py-12 sm:px-6 sm:py-16 lg:px-10">
-      <div className="mx-auto max-w-7xl">
-        {/* Who We Are + Stats */}
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10">
-          {/* Left: text */}
-          <div>
-            <p className="text-xs font-bold tracking-wider text-blue-700 sm:text-sm">
-              {ABOUT.eyebrow}
-            </p>
-            <h2 className="mt-2 text-xl font-extrabold leading-snug text-blue-950 sm:text-2xl md:text-3xl">
-              {ABOUT.headingLine1}
-              <br />
-              {ABOUT.headingLine2}
-            </h2>
-            <p className="mt-4 max-w-lg text-xs leading-relaxed text-gray-500 sm:text-sm">
-              {ABOUT.description}
-            </p>
+    <div
+      ref={ref}
+      className={`group relative rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-700 ease-out hover:-translate-y-1 hover:shadow-xl hover:border-blue-200 ${
+        isVisible
+          ? "opacity-100 translate-x-0"
+          : `opacity-0 ${align === "left" ? "-translate-x-10" : "translate-x-10"}`
+      }`}
+    >
+      <p className="font-serif italic text-xl text-blue-700 mb-2">{milestone.year}</p>
+      <div className="w-8 h-0.5 bg-blue-700 mb-4 transition-all duration-300 group-hover:w-14" />
 
-            <a
-              href={ABOUT.cta.href}
-              className="group mt-6 inline-flex items-center gap-2 rounded-full bg-blue-800 px-5 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-blue-900 sm:text-sm"
-            >
-              {ABOUT.cta.label}
-              <ArrowRight
-                size={16}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </a>
-          </div>
-
-          {/* Right: stats card */}
-          <div className="rounded-2xl bg-slate-50 px-5 py-6 sm:px-8 sm:py-8">
-            <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-4 sm:gap-y-0 sm:divide-x sm:divide-blue-100">
-              {STATS.map((stat, index) => {
-                const Icon = stat.icon;
-                return (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center px-2 text-center sm:px-4"
-                  >
-                    <Icon
-                      className="h-6 w-6 text-blue-700 sm:h-7 sm:w-7"
-                      strokeWidth={1.5}
-                    />
-                    <span className="mt-2 text-lg font-extrabold text-blue-950 sm:text-xl">
-                      {stat.value}
-                    </span>
-                    <p className="mt-0.5 whitespace-pre-line text-[11px] leading-snug text-gray-500 sm:text-xs">
-                      {stat.label}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h3 className="text-lg font-bold text-[#0b1f3a] mb-2">{milestone.title}</h3>
+          <p className="text-sm text-gray-500 leading-relaxed">{milestone.description}</p>
         </div>
 
-        {/* Our Journey of Growth */}
-        <div className="mt-12 rounded-2xl bg-slate-50 px-4 py-10 sm:mt-16 sm:px-8 sm:py-12">
-          <div className="text-center">
-            <p className="text-xs font-bold tracking-wider text-blue-700 sm:text-sm">
-              {HISTORY.eyebrow}
-            </p>
-            <h2 className="mt-2 text-xl font-extrabold text-blue-950 sm:text-2xl md:text-3xl">
-              {HISTORY.heading}
-            </h2>
-          </div>
+        <span className="shrink-0 w-11 h-11 rounded-full border border-blue-200 bg-white flex items-center justify-center text-blue-700 transition-all duration-300 group-hover:bg-blue-700 group-hover:text-white group-hover:scale-110 group-hover:rotate-6">
+          <Icon size={18} strokeWidth={2} />
+        </span>
+      </div>
+    </div>
+  );
+}
 
-          {/* Desktop / tablet: horizontal timeline */}
-          <div className="relative mt-12 hidden sm:block">
-            <div className="absolute left-0 right-0 top-5 h-px bg-blue-200" />
+function MilestoneImage({ milestone, align }) {
+  const [ref, isVisible] = useRevealOnScroll();
 
-            <div className="grid grid-cols-5 gap-4 lg:gap-6">
-              {TIMELINE.map((item, index) => (
-                <div key={index} className="flex flex-col items-center">
-                  <div className="relative z-10 flex h-10 w-10 items-center justify-center rounded-full bg-blue-800 ring-4 ring-slate-50">
-                    <Factory className="h-4 w-4 text-white" strokeWidth={1.75} />
+  return (
+    <div
+      ref={ref}
+      className={`overflow-hidden rounded-2xl shadow-sm transition-all duration-700 ease-out ${
+        isVisible
+          ? "opacity-100 translate-x-0"
+          : `opacity-0 ${align === "left" ? "-translate-x-10" : "translate-x-10"}`
+      }`}
+    >
+      <img
+        src={milestone.image}
+        alt={milestone.title}
+        className="h-56 w-full object-cover transition-transform duration-500 ease-out hover:scale-110"
+      />
+    </div>
+  );
+}
+
+function TimelineDot({ index }) {
+  const [ref, isVisible] = useRevealOnScroll();
+
+  return (
+    <div
+      ref={ref}
+      className={`relative z-10 hidden md:flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-blue-700 ring-4 ring-blue-100 transition-all duration-500 ${
+        isVisible ? "scale-100 opacity-100" : "scale-0 opacity-0"
+      }`}
+      style={{ transitionDelay: `${index * 80}ms` }}
+    />
+  );
+}
+
+export default function Timeline() {
+  return (
+    <section className="relative w-full bg-[#f7f9fc] px-6 py-16 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <p className="text-xs font-bold tracking-[3px] text-blue-700 uppercase mb-3">
+            {SECTION.eyebrow}
+          </p>
+          <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl text-[#0b1f3a] leading-tight mb-4">
+            {SECTION.headingPlain}
+            <span className="text-blue-700">{SECTION.headingHighlight}</span>
+          </h2>
+          <p className="text-sm sm:text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            {SECTION.description}
+          </p>
+          <div className="w-16 h-0.5 bg-blue-700 mx-auto mt-6" />
+        </div>
+
+        {/* Timeline */}
+        <div className="relative">
+          {/* center vertical line — desktop only */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gray-200" />
+
+          <div className="flex flex-col gap-10 md:gap-14">
+            {MILESTONES.map((milestone, i) => {
+              const cardOnLeft = i % 2 === 0;
+
+              return (
+                <div
+                  key={i}
+                  className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 md:gap-8"
+                >
+                  {/* left slot */}
+                  <div>
+                    {cardOnLeft ? (
+                      <MilestoneCard milestone={milestone} align="left" />
+                    ) : (
+                      <MilestoneImage milestone={milestone} align="left" />
+                    )}
                   </div>
 
-                  <div className="mt-5 w-full rounded-xl border border-blue-100 bg-white px-4 py-5 text-center sm:text-left">
-                    <p className="text-sm font-extrabold text-blue-950">
-                      {item.year}
-                    </p>
-                    <h3 className="mt-0.5 text-xs font-bold text-blue-800 sm:text-sm">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-[11px] leading-relaxed text-gray-500 sm:text-xs">
-                      {item.description}
-                    </p>
+                  {/* center dot */}
+                  <TimelineDot index={i} />
+
+                  {/* right slot */}
+                  <div>
+                    {cardOnLeft ? (
+                      <MilestoneImage milestone={milestone} align="right" />
+                    ) : (
+                      <MilestoneCard milestone={milestone} align="right" />
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Mobile: vertical timeline */}
-          <div className="relative mt-10 space-y-6 sm:hidden">
-            <div className="absolute bottom-0 left-5 top-0 w-px bg-blue-200" />
-
-            {TIMELINE.map((item, index) => (
-              <div key={index} className="relative flex gap-4 pl-0">
-                <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-800 ring-4 ring-slate-50">
-                  <Factory className="h-4 w-4 text-white" strokeWidth={1.75} />
-                </div>
-
-                <div className="flex-1 rounded-xl border border-blue-100 bg-white px-4 py-4">
-                  <p className="text-sm font-extrabold text-blue-950">
-                    {item.year}
-                  </p>
-                  <h3 className="mt-0.5 text-xs font-bold text-blue-800">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-[11px] leading-relaxed text-gray-500">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

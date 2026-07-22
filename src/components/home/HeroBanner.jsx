@@ -8,14 +8,14 @@ const HERO = {
   headingLine1: "Stronger Materials.",
   headingLine2: "Better Solutions.",
   description:
-    "Protap is a leading manufacturer of HDPE / PP Woven Fabric and Sacks, Non-woven Fabrics, PE Liner Bags and Aluminium Composite Panels (ACP) in West Bengal.",
+    "Pratap is a leading manufacturer of HDPE / PP Woven Fabric and Sacks, Non-woven Fabrics, PE Liner Bags and Aluminium Composite Panels (ACP) in West Bengal.",
   descriptionHighlight: "West Bengal.",
   primaryCta: { label: "Explore Our Products", href: "#" },
-  secondaryCta: { label: "About Protap", href: "#" },
+  secondaryCta: { label: "About Pratap", href: "#" },
   location: "Proudly Manufacturing in West Bengal, India",
   // Replace with your actual banner image path
   image: heroBanner,
-  imageAlt: "Protap woven sacks, liner bags and aluminium composite panels",
+  imageAlt: "Pratap woven sacks, liner bags and aluminium composite panels",
 };
 
 export default function Hero() {
@@ -34,7 +34,7 @@ export default function Hero() {
 
       {/* Overlay content */}
       <div className="absolute inset-0 flex items-center">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="page-width mx-auto w-full max-w-7xl">
           <div className="max-w-xl">
             <p className="text-xs font-bold tracking-wider text-blue-700 sm:text-sm">
               {HERO.eyebrow}
