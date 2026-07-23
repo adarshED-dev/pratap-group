@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import logo from '../../assets/medias/logo.png'
-
-
 
 // -----------------------------------------------------------------------
 // Static data
@@ -22,12 +20,39 @@ const brand = {
   logoLetter: "F",
 };
 
-export default function Header() {
+// Pass transparentAtTop="yes" on pages where the header should start
+// see-through (e.g. sitting over a hero image) and turn white once the
+// user scrolls down. Omit it (or pass anything else) and the header
+// stays white/solid at all times, regardless of scroll position.
+export default function Header({ transparentAtTop = "no" }) {
   const [productsOpen, setProductsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const isTransparentMode = transparentAtTop === "yes";
+
+  useEffect(() => {
+    // No need to listen for scroll at all if this header is never
+    // supposed to be transparent in the first place.
+    if (!isTransparentMode) return;
+
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    handleScroll(); // set correct state immediately on mount
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isTransparentMode]);
+
+  // Decide background/text styling:
+  // - transparent mode + not scrolled  -> see-through bg, dark text (assumes a light hero) or adjust as needed
+  // - transparent mode + scrolled      -> solid white bg + shadow
+  // - non-transparent mode             -> always solid white bg + shadow
+  const showSolidBg = !isTransparentMode || isScrolled;
 
   return (
-
-    <header className="w-full bg-white">
+    <header
+      className={`w-full transition-all duration-300 ${
+        showSolidBg ? "bg-white shadow-md" : "bg-transparent fixed top-0 z-50"
+      }`}
+    >
       <nav className="mx-auto flex page-width items-center justify-between py-4 px-5">
         {/* Left links */}
         <div className="flex items-center gap-8">

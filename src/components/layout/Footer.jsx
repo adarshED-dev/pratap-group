@@ -44,16 +44,16 @@ const PRODUCTS = {
   ],
 };
 
-const INDUSTRIES = {
-  title: "Industries",
-  links: [
-    { label: "Agriculture", href: "#" },
-    { label: "Chemicals", href: "#" },
-    { label: "Construction", href: "#" },
-    { label: "Food", href: "#" },
-    { label: "Logistics", href: "#" },
-  ],
-};
+// const INDUSTRIES = {
+//   title: "Industries",
+//   links: [
+//     { label: "Agriculture", href: "#" },
+//     { label: "Chemicals", href: "#" },
+//     { label: "Construction", href: "#" },
+//     { label: "Food", href: "#" },
+//     { label: "Logistics", href: "#" },
+//   ],
+// };
 
 const CONTACT = {
   title: "Get in Touch",
@@ -72,7 +72,7 @@ const LEGAL = {
 };
 
 export default function Footer() {
-  const scrollToTop = () => {
+  const scrollToTop = () => { 
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -84,7 +84,7 @@ export default function Footer() {
 
       {/* Main footer content */}
       <div className="relative page-width py-10 sm:py-12">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
           {/* Company */}
           <div className="sm:col-span-2 lg:col-span-1">
             <span className="text-xl font-bold italic tracking-tight text-white sm:text-2xl">
@@ -134,7 +134,7 @@ export default function Footer() {
           </div>
 
           {/* Industries */}
-          <div>
+          {/* <div>
             <h3 className="text-sm font-bold text-[#223d8e] sm:text-base">
               {INDUSTRIES.title}
             </h3>
@@ -150,7 +150,7 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           {/* Get in Touch */}
           <div>
@@ -210,7 +210,7 @@ export default function Footer() {
               <a
                 key={index}
                 href={link.href}
-                className="text-[11px] hover:text-white sm:text-xs text-[#223d8e]"
+                className="text-[11px] hover:text-gray-400 sm:text-xs text-[#223d8e]"
               >
                 {link.label}
               </a>

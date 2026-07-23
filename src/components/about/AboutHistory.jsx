@@ -170,10 +170,10 @@ function TimelineDot({ index }) {
   );
 }
 
-export default function Timeline() {
+export default function AboutHistory() {
   return (
     <section className="relative w-full bg-[#f7f9fc] px-6 py-16 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <div className="page-width mx-auto">
         {/* Heading */}
         <div className="text-center mb-16">
           <p className="text-xs font-bold tracking-[3px] text-blue-700 uppercase mb-3">

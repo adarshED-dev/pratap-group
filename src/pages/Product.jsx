@@ -399,7 +399,7 @@ export default function Product() {
 
   return (
     <main id="main-layout--product">
-        <Header />
+        <Header transparentAtTop="no" />
         <div className="min-h-screen bg-slate-50 font-sans text-slate-800 w-full">
       <div className="page-width py-8">
 

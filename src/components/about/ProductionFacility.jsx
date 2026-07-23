@@ -90,7 +90,7 @@ export default function ProductionFacility() {
                 <img
                   src={IMAGES.topRight}
                   alt="Pratap production line aisle"
-                  className="aspect-[16/10] w-full object-cover"
+                  className="aspect-[16/10] w-full object-cover h-full"
                 />
               </div>
 
@@ -99,14 +99,14 @@ export default function ProductionFacility() {
                   <img
                     src={IMAGES.bottomRight1}
                     alt="Pratap fabric rolls close-up"
-                    className="aspect-square w-full object-cover"
+                    className="aspect-square w-full object-cover h-full"
                   />
                 </div>
                 <div className="overflow-hidden rounded-2xl">
                   <img
                     src={IMAGES.bottomRight2}
                     alt="Pratap woven fabric roll close-up"
-                    className="aspect-square w-full object-cover"
+                    className="aspect-square w-full object-cover h-full"
                   />
                 </div>
               </div>
