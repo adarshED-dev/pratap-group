@@ -14,7 +14,7 @@ import heroBanner from '../assets/medias/heroBanner1.png'
 function Home() {
   return (
     <main id="main-layout--homepage">
-        <Header transparentAtTop="yes" />
+        <Header transparentAtTop="no" />
         <HeroBanner imageSrc={heroBanner} />
         <StatsData />
         <ProductRange />
