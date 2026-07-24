@@ -95,18 +95,20 @@ function ContactForm ({ formData }) {
           </p>
           <div className="w-16 h-0.5 bg-blue-700 mt-6" style={{opacity: 1, transform: "none"}}></div>
           {/* <Form /> */}
-          <form action="https://api.web3forms.com/submit" method="POST">
+          <form action="https://api.web3forms.com/submit" method="POST" className="mt-10 space-y-5">
             <input type="hidden" name="access_key" value={access_key} />
             <div className="grid gap-5 md:grid-cols-2">
               <input
                 type="text"
                 placeholder="Full Name"
+                name="name"
                 className="rounded border border-[#223d83]/30 bg-transparent px-5 py-4 text-blue-950 placeholder:text-[#223d83]/20 focus:border-blue-950 focus:outline-none"
               />
 
               <input
                 type="email"
                 placeholder="Email Address"
+                name="email"
                 className="rounded border border-[#223d8e]/30 bg-transparent px-5 py-4 text-blue-950 placeholder:text-[#223d83]/20 focus:border-blue-950 focus:outline-none"
               />
             </div>
@@ -114,32 +116,35 @@ function ContactForm ({ formData }) {
             <input
               type="tel"
               placeholder="Phone Number"
+              name="phone"
               className="w-full rounded border border-[#223d8e]/30 bg-transparent px-5 py-4 text-black placeholder:text-[#223d83]/20 focus:border-blue-950 focus:outline-none"
             />
 
             <input
               type="text"
               placeholder="Subject"
+              name="subject"
               className="w-full rounded border border-[#223d8e]/30 bg-transparent px-5 py-4 text-black placeholder:text-[#223d83]/20 focus:border-blue-950 focus:outline-none"
             />
 
             <textarea
               rows="6"
               placeholder="Your Message"
+              name="message"
               className="w-full resize-none rounded border border-[#223d83]/30 bg-transparent px-5 py-4 text-black placeholder:text-[#223d83]/20 focus:border-blue-950 focus:outline-none"
             />
 
             <div className="mt-10 flex justify-left sm:mt-12">
-          <a
-            href="#"
-            className="group inline-flex items-center gap-2 rounded-full border border-blue-700 px-6 py-2.5 text-xs tracking-[0.6px] text-blue-800 transition-colors hover:bg-blue-800 hover:text-white sm:text-sm"
-          >
-            {content.buttonText}
-            <ArrowRight
-              size={16}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </a>
+              <button
+  type="submit"
+  className="group inline-flex items-center gap-2 rounded-full border border-blue-700 px-6 py-2.5 text-xs tracking-[0.6px] text-blue-800 transition-colors hover:bg-blue-800 hover:text-white sm:text-sm"
+>
+  {content.buttonText}
+  <ArrowRight
+    size={16}
+    className="transition-transform duration-300 group-hover:translate-x-1"
+  />
+</button>
         </div>
 
             {/* <button
