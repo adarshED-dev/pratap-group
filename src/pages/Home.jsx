@@ -8,12 +8,12 @@ import AboutQuality from '../components/home/AboutQuality'
 import Sustainability from '../components/home/Sustainability'
 import Testimonials from '../components/home/Testimonial'
 import Footer from '../components/layout/Footer'
-import heroBanner from '../assets/medias/heroBanner1.png'
+import heroBanner from '../assets/medias/homeBanner.png'
 
 function Home() {
   return (
     <main id="main-layout--homepage">
-        <Header transparentAtTop="no" />
+        <Header transparentAtTop="yes" />
         <HeroBanner imageSrc={heroBanner} />
         <StatsData />
         <ProductRange />

@@ -102,33 +102,6 @@ export default function ManufacturerDetails() {
         </div>
       </div>
 
-      {/* Middle: highlight cards */}
-      {/* <div className="mt-10 rounded-2xl bg-slate-50 p-6 sm:p-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 gap-6 sm:gap-0">
-          {m.highlights.map((item, i) => (
-            <div key={i} className="sm:px-6 first:pl-0 last:pr-0 pt-6 sm:pt-0 first:pt-0">
-              <h3 className="text-base font-semibold text-slate-900 mb-2">{item.title}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </div> */}
-
-      {/* Bottom: tagline + CTA */}
-      <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-5">
-        <p className="text-sm sm:text-base text-slate-700 text-center sm:text-left">
-          {m.tagline}
-        </p>
-        <a
-          href={m.websiteUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-medium text-slate-900 transition-colors hover:bg-slate-50 shrink-0"
-        >
-          Visit Official Website
-          <ExternalLink className="h-4 w-4" />
-        </a>
-      </div>
     </section>
   );
 }
