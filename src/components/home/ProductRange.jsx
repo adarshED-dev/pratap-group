@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 import { ArrowRight, LayoutGrid } from "lucide-react";
 
 import wovenSackImage from '../../assets/medias/woven-sack.png'
@@ -54,12 +55,38 @@ const CUSTOM_CARD = {
   href: "#",
 };
 
+// Animation variants
+const fadeUp = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
+  },
+};
+
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
 export default function ProductRange() {
   return (
     <section className="w-full bg-white py-12 sm:py-16">
       <div className="page-width mx-auto max-w-7xl">
         {/* Heading */}
-        <div className="text-center">
+        <motion.div
+          className="text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px 0px -35% 0px" }}
+          variants={fadeUp}
+        >
           <p className="text-xs font-bold tracking-wider text-blue-700 sm:text-sm">
             {SECTION.eyebrow}
           </p>
@@ -67,15 +94,21 @@ export default function ProductRange() {
             {SECTION.heading}
           </h2>
           <div className="mx-auto mt-3 h-1 w-10 rounded-full bg-blue-700" />
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-5">
+        <motion.div
+          className="mt-8 grid grid-cols-1 gap-5 sm:mt-10 sm:grid-cols-2 sm:gap-6 lg:grid-cols-5"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px 0px -35% 0px" }}
+          variants={container}
+        >
           {PRODUCTS.map((product, index) => (
-            <div
+            <motion.div
               key={index}
-              className="group flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-            >
+              variants={fadeUp}
+              className="group flex flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="aspect-[4/3] w-full overflow-hidden bg-gray-50">
                 <img
                   src={product.image}
@@ -102,11 +135,14 @@ export default function ProductRange() {
                   />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
 
           {/* Custom Solutions dark card */}
-          <div className="group flex flex-col justify-between rounded-xl bg-gradient-to-r from-slate-50 to-sky-50 px-5 py-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:col-span-2 sm:px-6 sm:py-7 lg:col-span-1">
+          <motion.div
+            variants={fadeUp}
+            className="group flex flex-col justify-between rounded-xl bg-gradient-to-r from-slate-50 to-sky-50 px-5 py-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:col-span-2 sm:px-6 sm:py-7 lg:col-span-1"
+          >
             <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-black/25 bg-black/5">
               <LayoutGrid className="h-5 w-5 text-black" strokeWidth={1.75} />
             </div>
@@ -129,22 +165,8 @@ export default function ProductRange() {
                 />
               </a>
             </div>
-          </div>
-        </div>
-
-        {/* View all button */}
-        {/* <div className="mt-10 flex justify-center sm:mt-12">
-          <a
-            href="#"
-            className="group inline-flex items-center gap-2 rounded-full border border-blue-700 px-6 py-3 text-xs font-semibold text-blue-800 transition-colors hover:bg-blue-800 hover:text-white sm:text-sm"
-          >
-            View All Products
-            <ArrowRight
-              size={16}
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            />
-          </a>
-        </div> */}
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

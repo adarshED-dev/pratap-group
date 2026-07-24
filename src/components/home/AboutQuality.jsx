@@ -11,14 +11,14 @@ import {
   Leaf,
   Heart,
 } from "lucide-react";
-
+import { motion } from "motion/react";
 import aboutFactoryImage from '../../assets/medias/bg-tint.png'
 
 // Static data — edit here
 const ABOUT = {
   eyebrow: "About Pratap",
-  headingLine1: "Built on trust.",
-  headingLine2: "Driven by quality.",
+  headingLine1: "Built on trust, Driven by quality.",
+  headingLine2: "",
   description:
     "With over a decade of expertise, Pratap has become a trusted name in manufacturing high-quality industrial products. Our focus on innovation, advanced technology and customer satisfaction drives everything we do.",
   // Replace with your actual facility image path
@@ -46,8 +46,8 @@ const ABOUT = {
 
 const WHY_CHOOSE = {
   eyebrow: "Why Choose Pratap?",
-  headingLine1: "Quality is not just our promise,",
-  headingLine2: "it's our process.",
+  headingLine1: "Quality is not just our promise, it's our process.",
+  headingLine2: "",
   items: [
     {
       icon: ShieldCheck,
@@ -83,9 +83,10 @@ const WHY_CHOOSE = {
 };
 
 export default function AboutQuality() {
+  
   return (
     <section className="w-full">
-      <div className="w-full grid grid-cols-1 lg:grid-cols-2">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-1">
         {/* Left: About Pratap */}
         <div className="relative isolate overflow-hidden px-4 py-12 sm:px-8 sm:py-16 lg:px-10">
           <img
@@ -93,21 +94,27 @@ export default function AboutQuality() {
             alt={ABOUT.imageAlt}
             className="absolute inset-0 -z-20 h-full w-full object-cover"
           />
-          <div className="absolute inset-0 -z-10 bg-blue-950/85" />
-
-          <p className="text-[11px] font-bold tracking-wider text-blue-200 sm:text-xs page-width pl-[2%]">
-            {ABOUT.eyebrow}
-          </p>
-          <h2 className="mt-2 text-xl font-extrabold leading-snug text-white sm:text-2xl md:text-3xl page-width pl-[2%]">
+          <div className="absolute inset-0 -z-10 bg-blue-950/85"  style={{ perspective: "600px" }} />
+            <motion.p
+              className="text-[11px] font-bold tracking-wider text-blue-200 sm:text-xs page-width"
+              style={{ transformOrigin: "50% 100%" }}
+              initial={{ opacity: 0, rotateX: 90 }}
+              whileInView={{ opacity: 1, rotateX: 0 }}
+              viewport={{ once: true, margin: "0px 0px -35% 0px" }}
+              transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                {ABOUT.eyebrow}
+              </motion.p>
+          <h2 className="mt-2 text-xl font-extrabold leading-snug text-white sm:text-2xl md:text-3xl page-width">
             {ABOUT.headingLine1}
             <br />
             {ABOUT.headingLine2}
           </h2>
-          <p className="mt-4 max-w-md text-xs leading-relaxed text-blue-100/80 sm:text-sm page-width pl-[2%]">
+          <p className="mt-4 max-w-md text-xs leading-relaxed text-blue-100/80 sm:text-sm page-width">
             {ABOUT.description}
           </p>
 
-          <div className="mt-6 flex flex-col gap-4 sm:mt-8 sm:gap-5 page-width pl-[2%]">
+          <div className="mt-6 flex flex-row gap-4 sm:mt-8 sm:gap-5 page-width">
             {ABOUT.features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -141,7 +148,7 @@ export default function AboutQuality() {
         </div>
 
         {/* Right: Why Choose Pratap */}
-        <div className="bg-white px-4 py-12 sm:px-8 sm:py-16 lg:px-10">
+        <div className="bg-white page-width py-12 sm:py-16">
           <p className="text-[11px] font-bold tracking-wider text-blue-700 sm:text-xs">
             {WHY_CHOOSE.eyebrow}
           </p>
@@ -152,7 +159,7 @@ export default function AboutQuality() {
           </h2>
           <div className="mt-3 h-1 w-10 rounded-full bg-blue-700" />
 
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-5 lg:grid-cols-6">
             {WHY_CHOOSE.items.map((item, index) => {
               const Icon = item.icon;
               return (

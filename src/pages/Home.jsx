@@ -8,7 +8,6 @@ import AboutQuality from '../components/home/AboutQuality'
 import Sustainability from '../components/home/Sustainability'
 import Testimonials from '../components/home/Testimonial'
 import Footer from '../components/layout/Footer'
-
 import heroBanner from '../assets/medias/heroBanner1.png'
 
 function Home() {

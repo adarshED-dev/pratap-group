@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
 import { Factory, Award, Users, ShieldCheck, Globe2 } from "lucide-react";
 
 // Static data — edit here
@@ -29,7 +30,7 @@ const STATS = [
   },
   {
     icon: Globe2,
-    title: "5000+",
+    title: "500+",
     subtitle: "Pan India Supply Network",
     description: "Timely delivery across the country.",
   },
@@ -38,7 +39,7 @@ const STATS = [
 // How long every counter takes to finish, in milliseconds — every stat
 // reaches its target at the same moment regardless of how big the
 // number is (15 and 15000 both finish together at this duration).
-const COUNT_DURATION_MS = 6000;
+const COUNT_DURATION_MS = 3000;
 
 // Splits "15000+" -> { value: 15000, prefix: "", suffix: "+" }
 // Splits "100%"   -> { value: 100,   prefix: "", suffix: "%" }
@@ -114,6 +115,7 @@ function useCountUp(target, duration, start) {
   return value;
 }
 
+
 function StatItem({ stat, sectionVisible }) {
   const Icon = stat.icon;
   const { prefix, value: targetValue, suffix } = parseStatTitle(stat.title);
@@ -121,17 +123,26 @@ function StatItem({ stat, sectionVisible }) {
 
   return (
     <div className="flex justify-center items-center gap-3 px-0 lg:px-6 lg:first:pl-0 lg:last:pr-0">
-      {/* <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/5 sm:h-12 sm:w-12">
-        <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" strokeWidth={1.75} />
-      </div> */}
-
       <div>
         <div className="flex items-baseline gap-1.5 text-center justify-center">
-          <span className="font-bold text-[#2a3d6d] text-3xl text-center mb-2 tabular-nums">
+          <motion.span
+            className="font-bold text-[#2a3d6d] text-center mb-2 tabular-nums"
+            initial={{ opacity: 0, fontSize: "1rem" }}
+            viewport={{ once: true, margin: "0px 0px -35% 0px" }}
+            animate={
+              sectionVisible
+                ? { opacity: 1, fontSize: "1.875rem" }
+                : { opacity: 0, fontSize: "1rem" }
+            }
+            transition={{
+              duration: COUNT_DURATION_MS / 1000,
+              ease: "easeOut",
+            }}
+          >
             {prefix}
             {count.toLocaleString()}
             {suffix}
-          </span>
+          </motion.span>
         </div>
         <p className="text-xs font-semibold text-black sm:text-sm text-center">
           {stat.subtitle}
@@ -143,6 +154,11 @@ function StatItem({ stat, sectionVisible }) {
     </div>
   );
 }
+
+
+
+
+
 
 export default function StatsData() {
   const [sectionVisible, setSectionVisible] = useState(false);

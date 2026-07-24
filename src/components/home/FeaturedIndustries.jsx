@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import {
   Sprout,
   FlaskConical,
@@ -14,7 +15,7 @@ import {
 const SECTION = {
   eyebrow: "Industries We Serve",
   headingPlain: "Solutions that power ",
-  headingHighlight: "every industry.",
+  headingHighlight: " every industry.",
   description:
     "Our high-performance materials and packaging solutions are trusted across a wide range of industries for their quality, strength and reliability.",
   cta: { label: "Explore All Industries", href: "#" },
@@ -37,7 +38,7 @@ const INDUSTRIES = [
     icon: FlaskConical,
     iconColor: "text-purple-600",
     image:
-      "https://images.unsplash.com/photo-1616661317889-05b3d4d1f7bd?w=500&h=400&fit=crop",
+      "https://images.pexels.com/photos/5428257/pexels-photo-5428257.jpeg?_gl=1*fuwbnj*_ga*MTM4MzEzNTU2My4xNzg0ODA2ODg1*_ga_8JE65Q40S6*czE3ODQ4MDY4ODUkbzEkZzEkdDE3ODQ4MDY5OTIkajI0JGwwJGgw",
   },
   {
     name: "Construction",
@@ -68,33 +69,110 @@ const INDUSTRIES = [
   },
 ];
 
+// Standard fade-up — used for the eyebrow, plain heading text, description, and cards
+const fadeUp = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
+  },
+};
+
+// "Falls from top like an object" — starts higher up and further away (opacity 0),
+// accelerates downward (spring), and settles with a small natural bounce on landing.
+const dropIn = {
+  hidden: { opacity: 0, y: -70 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 14,
+      mass: 0.9,
+    },
+  },
+};
+
+// Stagger wrapper for the heading block — makes eyebrow, heading, description
+// reveal in sequence rather than all at once
+const headingContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+// Stagger wrapper for the industry cards grid
+const cardsContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.1,
+    },
+  },
+};
+
 export default function FeaturedIndustries() {
   return (
     <section className="relative w-full bg-[#f7f9fc] px-6 py-16">
       <div className="page-width mx-auto">
         {/* Heading */}
-        <div className="text-center mb-10">
-          <p className="flex items-center justify-center gap-2 text-xs font-bold tracking-[3px] text-blue-700 uppercase mb-3">
+        <motion.div
+          className="text-center mb-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px 0px -35% 0px" }}
+          variants={headingContainer}
+        >
+          <motion.p
+            variants={fadeUp}
+            className="flex items-center justify-center gap-2 text-xs font-bold tracking-[3px] text-blue-700 uppercase mb-3"
+          >
             {SECTION.eyebrow}
             <span className="w-6 h-px bg-gray-300" />
-          </p>
+          </motion.p>
+
           <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl text-[#0b1f3a] leading-tight mb-4">
-            {SECTION.headingPlain}
-            <span className="text-blue-700">{SECTION.headingHighlight}</span>
+            <motion.span variants={fadeUp} className="inline-block">
+              {SECTION.headingPlain}
+            </motion.span>
+            <motion.span variants={dropIn} className="inline-block text-blue-700 ml-[20px]">
+              {SECTION.headingHighlight}
+            </motion.span>
           </h2>
-          <p className="text-sm sm:text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">
+
+          <motion.p
+            variants={fadeUp}
+            className="text-sm sm:text-base text-gray-500 max-w-2xl mx-auto leading-relaxed"
+          >
             {SECTION.description}
-          </p>
-          <div className="w-16 h-0.5 bg-blue-700 mx-auto mt-6" />
-        </div>
+          </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            className="w-16 h-0.5 bg-blue-700 mx-auto mt-6"
+          />
+        </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "0px 0px -35% 0px" }}
+          variants={cardsContainer}
+        >
           {INDUSTRIES.map((industry, i) => {
             const Icon = industry.icon;
             return (
-              <div
+              <motion.div
                 key={i}
+                variants={fadeUp}
                 className="rounded-2xl bg-white overflow-hidden border border-gray-100 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1"
               >
                 {/* Image + icon */}
@@ -124,14 +202,14 @@ export default function FeaturedIndustries() {
                     <ArrowRight size={18} />
                   </a>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* CTA button */}
         {/* <div className="flex justify-center mt-8">
-          <a
+          
             href={SECTION.cta.href}
             className="group inline-flex items-center gap-2 rounded-full border border-blue-700 px-6 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50 transition-colors"
           >

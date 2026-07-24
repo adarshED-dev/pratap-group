@@ -72,7 +72,7 @@ export default function Testimonials() {
 
           {/* Right: marquee-scrolling client logos */}
           <div className="min-w-0">
-            <p className="text-[10px] font-bold tracking-wider text-blue-700 sm:text-xs">
+            <p className="text-[10px] font-bold tracking-wider text-[#223d8e] sm:text-xs">
               {CLIENTS.eyebrow}
             </p>
 

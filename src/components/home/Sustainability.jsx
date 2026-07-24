@@ -80,7 +80,7 @@ export default function Sustainability() {
                         strokeWidth={1.5}
                       />
                     </div>
-                    <p className="mt-2 whitespace-pre-line text-[10px] font-semibold leading-snug text-white sm:text-xs">
+                    <p className="mt-2 whitespace-pre-line text-[10px] uppercase tracking-[0.6px] leading-snug text-white sm:text-xs">
                       {point.title}
                     </p>
                   </div>

@@ -42,7 +42,7 @@ const FACILITIES = [
     title: "Packaging Unit",
     description: "Dedicated packaging and finishing for superior output.",
     image:
-      "https://images.unsplash.com/photo-1581091870621-1f7f0aeae481?w=400&h=400&fit=crop",
+      "https://images.pexels.com/photos/10834810/pexels-photo-10834810.jpeg?_gl=1*6wijfb*_ga*MTM4MzEzNTU2My4xNzg0ODA2ODg1*_ga_8JE65Q40S6*czE3ODQ4MDY4ODUkbzEkZzEkdDE3ODQ4MDgyMzEkajUyJGwwJGgw",
   },
   {
     icon: Lightbulb,
